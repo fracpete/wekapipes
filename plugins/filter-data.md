@@ -7,7 +7,8 @@ Filters the data coming through.
 
 ```
 usage: filter-data [-h] [-l {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
-                   [-N LOGGER_NAME] [--skip] -f CMDLINE
+                   [-N LOGGER_NAME] [--skip] [-f CMDLINE] [-a] [-L FILE]
+                   [-S FILE]
 
 Filters the data coming through.
 
@@ -23,4 +24,59 @@ options:
   -f CMDLINE, --filter CMDLINE
                         The command-line of the filter to use (classname +
                         options). (default: None)
+  -a, --always_initialize
+                        Whether to initialize the filter with each data item
+                        passing through. (default: False)
+  -L FILE, --load_from FILE
+                        The file to load the serialized filter from. Available
+                        placeholders: - {HOME}: The home directory of the
+                        current user. - {CWD}: The current working directory.
+                        - {TMP}: The temp directory. - {INPUT_PATH}: The
+                        directory part of the current input, i.e.,
+                        '/some/where' of input '/some/where/file.txt'. -
+                        {INPUT_NAMEEXT}: The name (incl extension) of the
+                        current input, i.e., 'file.txt' of input
+                        '/some/where/file.txt'. - {INPUT_NAMENOEXT}: The name
+                        (excl extension) of the current input, i.e., 'file' of
+                        input '/some/where/file.txt'. - {INPUT_EXT}: The
+                        extension of the current input (incl dot), i.e.,
+                        '.txt' of input '/some/where/file.txt'. -
+                        {INPUT_PARENT_PATH}: The directory part of the parent
+                        directory of the current input, i.e., '/some' of input
+                        '/some/where/file.txt'. - {INPUT_PARENT_NAME}: The
+                        name of the parent directory of the current input,
+                        i.e., 'where' of input '/some/where/file.txt'.
+                        (default: None)
+  -S FILE, --save_to FILE
+                        The file to save the initialized filter to. Available
+                        placeholders: - {HOME}: The home directory of the
+                        current user. - {CWD}: The current working directory.
+                        - {TMP}: The temp directory. - {INPUT_PATH}: The
+                        directory part of the current input, i.e.,
+                        '/some/where' of input '/some/where/file.txt'. -
+                        {INPUT_NAMEEXT}: The name (incl extension) of the
+                        current input, i.e., 'file.txt' of input
+                        '/some/where/file.txt'. - {INPUT_NAMENOEXT}: The name
+                        (excl extension) of the current input, i.e., 'file' of
+                        input '/some/where/file.txt'. - {INPUT_EXT}: The
+                        extension of the current input (incl dot), i.e.,
+                        '.txt' of input '/some/where/file.txt'. -
+                        {INPUT_PARENT_PATH}: The directory part of the parent
+                        directory of the current input, i.e., '/some' of input
+                        '/some/where/file.txt'. - {INPUT_PARENT_NAME}: The
+                        name of the parent directory of the current input,
+                        i.e., 'where' of input '/some/where/file.txt'.
+                        (default: None)
 ```
+
+Available placeholders:
+
+* `{HOME}`: The home directory of the current user.
+* `{CWD}`: The current working directory.
+* `{TMP}`: The temp directory.
+* `{INPUT_PATH}`: The directory part of the current input, i.e., `/some/where` of input `/some/where/file.txt`.
+* `{INPUT_NAMEEXT}`: The name (incl extension) of the current input, i.e., `file.txt` of input `/some/where/file.txt`.
+* `{INPUT_NAMENOEXT}`: The name (excl extension) of the current input, i.e., `file` of input `/some/where/file.txt`.
+* `{INPUT_EXT}`: The extension of the current input (incl dot), i.e., `.txt` of input `/some/where/file.txt`.
+* `{INPUT_PARENT_PATH}`: The directory part of the parent directory of the current input, i.e., `/some` of input `/some/where/file.txt`.
+* `{INPUT_PARENT_NAME}`: The name of the parent directory of the current input, i.e., `where` of input `/some/where/file.txt`.
