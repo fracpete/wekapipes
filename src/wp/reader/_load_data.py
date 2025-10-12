@@ -7,7 +7,7 @@ from wai.logging import LOGGING_WARNING
 from seppl.placeholders import PlaceholderSupporter, placeholder_list
 from kasperl.api import Reader
 from weka.core.dataset import Instances, Instance
-from weka.core.classes import from_commandline
+from weka.core.classes import from_commandline, to_commandline
 from weka.core.converters import Loader, loader_for_file
 
 
@@ -79,7 +79,7 @@ class LoadData(Reader, PlaceholderSupporter):
         parser.add_argument("-I", "--input_list", type=str, help="Path to the text file(s) listing the data files to use; " + placeholder_list(obj=self), required=False, nargs="*")
         parser.add_argument("--resume_from", type=str, help="Glob expression matching the file to resume from, e.g., '*/012345.arff'", required=False)
         parser.add_argument("-u", "--use_custom_loader", action="store_true", help="Whether to use the supplied custom loader rather than auto-detection.")
-        parser.add_argument("-L", "--custom_loader", type=str, default=None, help="The command-line of the custom loader to use (classname + options).", required=False)
+        parser.add_argument("-L", "--custom_loader", metavar="CMDLINE", type=str, default=None, help="The command-line of the custom loader to use (classname + options).", required=False)
         parser.add_argument("-c", "--class_index", type=str, default=None, help="The class index to use on the data, e.g., 1, first, 3, last.", required=False)
         parser.add_argument("--incremental", action="store_true", help="Whether to load the data row by row rather than in one go.")
         return parser
@@ -122,6 +122,7 @@ class LoadData(Reader, PlaceholderSupporter):
         if self.use_custom_loader:
             if self.custom_loader is None:
                 raise Exception("No custom loader command-lined specified!")
+            self.logger().info("Instantiating custom loader: %s" % self.custom_loader)
             self._loader = from_commandline(self.custom_loader, classname="weka.core.converters.Loader")
         if self.incremental is None:
             self.incremental = False
@@ -141,6 +142,9 @@ class LoadData(Reader, PlaceholderSupporter):
         self.logger().info("Reading from: " + str(self.session.current_input))
         if not self.use_custom_loader:
             self._loader = loader_for_file(self._current_input)
+            if self._loader is None:
+                raise Exception("Failed to determine loader for file: %s" % self._current_input)
+            self.logger().info("Auto-detected loader: %s" % to_commandline(self._loader))
         if self.incremental:
             self._loader.load_file(self._current_input, incremental=True, class_index=self.class_index)
             for inst in self._loader:
