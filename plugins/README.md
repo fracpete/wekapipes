@@ -4,6 +4,7 @@
 * [from-text-file](from-text-file.md)
 * [get-email](get-email.md)
 * [list-files](list-files.md)
+* [load-data](load-data.md)
 * [poll-dir](poll-dir.md)
 * [start](start.md)
 * [watch-dir](watch-dir.md)
@@ -13,6 +14,7 @@
 * [check-duplicate-filenames](check-duplicate-filenames.md)
 * [copy-files](copy-files.md)
 * [discard-by-name](discard-by-name.md)
+* [filter-data](filter-data.md)
 * [list-to-sequence](list-to-sequence.md)
 * [max-records](max-records.md)
 * [metadata](metadata.md)
@@ -36,6 +38,7 @@
 ## Writers
 * [console](console.md)
 * [delete-files](delete-files.md)
+* [save-data](save-data.md)
 * [send-email](send-email.md)
 * [to-storage](to-storage.md)
 * [to-text-file](to-text-file.md)

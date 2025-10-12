@@ -34,14 +34,16 @@ Tool for running Weka pipelines.
 readers (8):
    from-storage, from-text-file, get-email, list-files, load-data, 
    poll-dir, start, watch-dir
-filters (23):
+filters (24):
    block, check-duplicate-filenames, copy-files, discard-by-name, 
-   list-to-sequence, max-records, metadata, metadata-from-name, 
-   metadata-to-placeholder, move-files, passthrough, randomize-records, 
-   record-window, rename, sample, set-metadata, set-placeholder, 
-   set-storage, split-records, stop, sub-process, tee, trigger
-writers (5):
-   console, delete-files, send-email, to-storage, to-text-file
+   filter-data, list-to-sequence, max-records, metadata, 
+   metadata-from-name, metadata-to-placeholder, move-files, passthrough, 
+   randomize-records, record-window, rename, sample, set-metadata, 
+   set-placeholder, set-storage, split-records, stop, sub-process, tee, 
+   trigger
+writers (6):
+   console, delete-files, save-data, send-email, to-storage, 
+   to-text-file
 
 options:
   -h, --help           Show basic help message and exit.
