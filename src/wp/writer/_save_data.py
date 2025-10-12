@@ -111,4 +111,5 @@ class SaveData(StreamWriter, InputBasedPlaceholderSupporter):
         """
         for item in make_list(data):
             output_file = self.session.expand_placeholders(self.output_file)
+            self.logger().info("Saving data to: %s" % output_file)
             self._saver.save_file(item, output_file)
