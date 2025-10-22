@@ -10,9 +10,12 @@
 * [watch-dir](watch-dir.md)
 
 ## Filters
+* [annotations-from-storage](annotations-from-storage.md)
+* [annotations-to-storage](annotations-to-storage.md)
 * [block](block.md)
 * [check-duplicate-filenames](check-duplicate-filenames.md)
 * [copy-files](copy-files.md)
+* [delete-storage](delete-storage.md)
 * [discard-by-name](discard-by-name.md)
 * [filter-data](filter-data.md)
 * [list-to-sequence](list-to-sequence.md)

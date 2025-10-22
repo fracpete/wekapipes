@@ -31,42 +31,12 @@ options:
                         The file to load the serialized filter from. Available
                         placeholders: - {HOME}: The home directory of the
                         current user. - {CWD}: The current working directory.
-                        - {TMP}: The temp directory. - {INPUT_PATH}: The
-                        directory part of the current input, i.e.,
-                        '/some/where' of input '/some/where/file.txt'. -
-                        {INPUT_NAMEEXT}: The name (incl extension) of the
-                        current input, i.e., 'file.txt' of input
-                        '/some/where/file.txt'. - {INPUT_NAMENOEXT}: The name
-                        (excl extension) of the current input, i.e., 'file' of
-                        input '/some/where/file.txt'. - {INPUT_EXT}: The
-                        extension of the current input (incl dot), i.e.,
-                        '.txt' of input '/some/where/file.txt'. -
-                        {INPUT_PARENT_PATH}: The directory part of the parent
-                        directory of the current input, i.e., '/some' of input
-                        '/some/where/file.txt'. - {INPUT_PARENT_NAME}: The
-                        name of the parent directory of the current input,
-                        i.e., 'where' of input '/some/where/file.txt'.
-                        (default: None)
+                        - {TMP}: The temp directory. (default: None)
   -S FILE, --save_to FILE
                         The file to save the initialized filter to. Available
                         placeholders: - {HOME}: The home directory of the
                         current user. - {CWD}: The current working directory.
-                        - {TMP}: The temp directory. - {INPUT_PATH}: The
-                        directory part of the current input, i.e.,
-                        '/some/where' of input '/some/where/file.txt'. -
-                        {INPUT_NAMEEXT}: The name (incl extension) of the
-                        current input, i.e., 'file.txt' of input
-                        '/some/where/file.txt'. - {INPUT_NAMENOEXT}: The name
-                        (excl extension) of the current input, i.e., 'file' of
-                        input '/some/where/file.txt'. - {INPUT_EXT}: The
-                        extension of the current input (incl dot), i.e.,
-                        '.txt' of input '/some/where/file.txt'. -
-                        {INPUT_PARENT_PATH}: The directory part of the parent
-                        directory of the current input, i.e., '/some' of input
-                        '/some/where/file.txt'. - {INPUT_PARENT_NAME}: The
-                        name of the parent directory of the current input,
-                        i.e., 'where' of input '/some/where/file.txt'.
-                        (default: None)
+                        - {TMP}: The temp directory. (default: None)
 ```
 
 Available placeholders:
@@ -74,9 +44,3 @@ Available placeholders:
 * `{HOME}`: The home directory of the current user.
 * `{CWD}`: The current working directory.
 * `{TMP}`: The temp directory.
-* `{INPUT_PATH}`: The directory part of the current input, i.e., `/some/where` of input `/some/where/file.txt`.
-* `{INPUT_NAMEEXT}`: The name (incl extension) of the current input, i.e., `file.txt` of input `/some/where/file.txt`.
-* `{INPUT_NAMENOEXT}`: The name (excl extension) of the current input, i.e., `file` of input `/some/where/file.txt`.
-* `{INPUT_EXT}`: The extension of the current input (incl dot), i.e., `.txt` of input `/some/where/file.txt`.
-* `{INPUT_PARENT_PATH}`: The directory part of the parent directory of the current input, i.e., `/some` of input `/some/where/file.txt`.
-* `{INPUT_PARENT_NAME}`: The name of the parent directory of the current input, i.e., `where` of input `/some/where/file.txt`.
